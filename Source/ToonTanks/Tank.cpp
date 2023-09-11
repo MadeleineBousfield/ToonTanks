@@ -43,7 +43,7 @@ void ATank::Tick(float DeltaTime)
 	}
 }
 
-//player input bindings for tank movement
+//player input bindings 
 void ATank::SetupPlayerInputComponent(UInputComponent* PlayerInputComponent)
 {
 	Super::SetupPlayerInputComponent(PlayerInputComponent);
@@ -51,9 +51,10 @@ void ATank::SetupPlayerInputComponent(UInputComponent* PlayerInputComponent)
 	PlayerInputComponent->BindAxis(TEXT("MoveForward"), this, &ATank::Move);
 	PlayerInputComponent->BindAxis(TEXT("Turn"), this, &ATank::Turn);
 
+	PlayerInputComponent->BindAction(TEXT("Fire"), IE_Pressed, this, &ATank::Fire);
 }
 
-//movement in local space using axis bindings
+//movement 
 void ATank::Move(float value)
 {
 	FVector DeltaLocation = FVector::ZeroVector;
@@ -67,3 +68,5 @@ void ATank::Turn(float value)
 	DeltaRotation.Yaw = value * TurnRate * UGameplayStatics::GetWorldDeltaSeconds(this);
 	AddActorLocalRotation(DeltaRotation, true);
 }
+
+
