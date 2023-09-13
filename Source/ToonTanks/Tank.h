@@ -29,6 +29,10 @@ public:
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
 
+	void HandleDestruction();
+	;
+	APlayerController* GetTankPlayerController() const { return TankPlayerController; }
+
 private:
 	UPROPERTY(VisibleAnywhere, Category = "Components")
 	class USpringArmComponent* SpringArm;
@@ -46,6 +50,6 @@ private:
 	void Move(float value);
 	void Turn(float value);
 
-	APlayerController* PlayerControllerRef;
+	APlayerController* TankPlayerController;
 	
 };
