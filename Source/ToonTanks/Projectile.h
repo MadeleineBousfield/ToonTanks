@@ -31,8 +31,19 @@ private:
 	UPROPERTY(EditAnywhere)
 		float Damage = 20.f;
 
-public:	
+	UPROPERTY(EditAnywhere, Category="Combat")
+		class UParticleSystem* HitParticles;
 
+	UPROPERTY(VisibleAnywhere, Category="Combat")
+		class UParticleSystemComponent* ParticleSystemComponent;
 
+	UPROPERTY(EditAnywhere, Category="Combat")
+		class USoundBase* LaunchSound;
+
+	UPROPERTY(EditAnywhere, Category = "Combat")
+		USoundBase* HitSound;
+
+	UPROPERTY(EditAnywhere, Category="Combat")
+		TSubclassOf<class UCameraShakeBase> HitCameraShakeClass;
 
 };

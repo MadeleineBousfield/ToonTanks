@@ -33,6 +33,9 @@ public:
 	;
 	APlayerController* GetTankPlayerController() const { return TankPlayerController; }
 
+	bool bAlive = true;
+
+
 private:
 	UPROPERTY(VisibleAnywhere, Category = "Components")
 	class USpringArmComponent* SpringArm;
@@ -51,5 +54,6 @@ private:
 	void Turn(float value);
 
 	APlayerController* TankPlayerController;
+
 	
 };
